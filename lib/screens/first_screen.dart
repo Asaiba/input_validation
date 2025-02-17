@@ -11,19 +11,20 @@ class _FirstScreenState extends State<FirstScreen> {
   final _nameController = TextEditingController();
   final _emailController = TextEditingController();
 
+// Validation logic for name and email fields
   String? _validateName(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Name cannot be empty';
+      return 'Please enter your name';
     }
     return null;
   }
 
   String? _validateEmail(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Email cannot be empty';
+      return 'Email field cannot be empty';
     }
     if (!RegExp(r'^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$').hasMatch(value)) {
-      return 'Enter a valid email';
+      return 'Please enter a valid email';
     }
     return null;
   }
@@ -55,17 +56,18 @@ class _FirstScreenState extends State<FirstScreen> {
               
               TextFormField(
                 controller: _nameController,
-                decoration: InputDecoration(labelText: 'Name'),
+                decoration: InputDecoration(labelText: 'Full Name'),
                 validator: _validateName,
               ),
               
               TextFormField(
                 controller: _emailController,
-                decoration: InputDecoration(labelText: 'Email'),
+                decoration: InputDecoration(labelText: 'Your Email'),
                 validator: _validateEmail,
               ),
               SizedBox(height: 20),
               
+               // If form is valid, save the inputs and proceed to the next screen
               ElevatedButton(
                 onPressed: _submit,
                 child: Text('Next'),

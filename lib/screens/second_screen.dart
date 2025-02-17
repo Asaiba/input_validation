@@ -16,7 +16,7 @@ class _SecondScreenState extends State<SecondScreen> {
   // Validation for phone number (should only contain digits and be 10 characters)
   String? _validatePhone(String? value) {
     if (value == null || value.isEmpty) {
-      return 'Phone number cannot be empty';
+      return 'Phone number field cannot be empty';
     }
     if (!RegExp(r'^[0-9]{10}$').hasMatch(value)) {
       return 'Enter a valid 10-digit phone number';
